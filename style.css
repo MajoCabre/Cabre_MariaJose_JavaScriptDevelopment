@@ -1,0 +1,367 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  background-color: #160313 !important;
+  margin: 0;
+  margin-bottom: 40px;
+}
+header {
+  background-color: #3a0318;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+.logo {
+  width: 150px;
+}
+.navMenu {
+  display: flex;
+  align-items: center;
+}
+.navMenu > a{
+  background-color: #160313;
+  border: solid #18122b 1px;
+  border-radius: 3px;
+  color: white;
+  font-weight: 600;
+  margin: 0 10px 0 10px;
+  padding: 5px;
+}
+.navMenu > a:hover {
+  background-color: #610528;
+  border: solid #67646f 1px;
+  color: white;
+}
+.nav {
+  background-color: #610528;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.categorias {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 20px 2px;
+}
+.buscarCategoria {
+  margin-right: 10px;
+}
+.buscar {
+  background-color: #160313;
+  border: none;
+}
+.botonBuscar {
+  width: 25px;
+}
+.inputBusqueda {
+  display: flex;
+  align-items: center;
+}
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+.tarjeta,
+.tarjetaPast {
+  background-color: white;
+  margin-bottom: 20px;
+  padding: 15px;
+}
+.tarjetaPast {
+  display: flex;
+  flex-direction: row;
+}
+.tarjetaImg {
+  box-shadow: rgb(0 0 0 / 32%) -7px -8px 6px 1px;
+  margin: 10px 5px;
+}
+.tarjeta img {
+  width: 100%;
+  height: 150px;
+}
+.tarjetaDescripcion,
+.tarjetaDescripcionPast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #160313;
+  margin: 20px;
+}
+.tarjetaDescripcion h3 {
+  font-size: 20px;
+}
+.tarjetaDescripcion p {
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+.tarjetaBoton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #160313;
+}
+.botonPast {
+  margin-top: 8vh;
+}
+.tarjetaBoton h4 {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+.tituloPast {
+  margin-right: 20px;
+}
+.tarjetaBoton button {
+  border: none;
+  border-radius: 3px;
+  font-size: 15px;
+  box-shadow: rgb(0 0 0 / 15%) -5px -4px 4px 0px;
+}
+.tarjetaBoton button:hover {
+  background-color: #610528;
+  color: white;
+}
+.contenedorPast {
+  height: 595px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.textForm {
+  color: white;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+table {
+  font-size: 15px;
+  margin: 40px 15px 60px 15px;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+th,
+td {
+  color: white;
+  border: 2px solid #dddddd;
+  height: 25px;
+  width: 350px;
+}
+.tableTitulo {
+  background-color: #610528;
+}
+footer {
+  background-color: #610528;
+  bottom: 0;
+  color: white;
+  height: 40px;
+  position: absolute;
+  width: 100%;
+}
+.contenedorFooter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.contenedorBotonFooter {
+  display: flex;
+  align-items: center;
+}
+#facebook {
+  width: 30px;
+  height: 30px;
+}
+#whatsapp {
+  width: 26px;
+  height: 27px;
+}
+.botonFooter {
+  margin: 5px 15px;
+}
+.parrafoFooter {
+  margin: 5px 15px;
+  display: flex;
+  align-items: center;
+}
+.parrafoFooter > p {
+  margin: 0;
+}
+@media (max-width: 470px) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+  }
+  * {
+    width: 100%;
+    margin: 0;
+  }
+  .logo {
+    width: 50px;
+    height: 15px;
+  }
+  .nav {
+    padding: 5px;
+    justify-content: space-around;
+    align-items: baseline;
+  }
+  .navMenu {
+    margin-left: 20px;
+    justify-content: space-evenly;
+  }
+  .navMenu a {
+    width: 10px;
+  }
+  .navMenu > a{
+    font-size: 7px;
+    margin: 5px;
+    padding: 0px;
+    width: 45px;
+  }
+  .nav h1 {
+    font-size: 15px;
+    width: 10px;
+  }
+  .nav img {
+    width: 10px;
+  }
+  .categorias {
+    margin: 15px 0px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 95%;
+  }
+  .buscarCategoria {
+    margin-right: 2px;
+    font-size: 10px;
+    height: 12px;
+    width: 13%;
+  }
+  .buscarCategoria input {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+  .inputBusqueda {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .buscar {
+    width: 5%;
+  }
+  .botonBuscar {
+    width: 15px;
+  }
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tarjeta {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+  .tarjeta img {
+    width: 100%;
+    height: 150px;
+  }
+  .tarjetaDescripcion {
+    width: 80%;
+  }
+  .tarjetaDescripcion h3 {
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  .tarjetaImg {
+    width: 80%;
+  }
+  .tarjetaBoton button {
+    width: 31%;
+    font-size: 12px;
+  }
+  footer {
+    position: relative;
+  }
+  .botonFooter {
+    margin: 2px 5px;
+  }
+  #facebook,
+  #instagram,
+  #whatsapp {
+    width: 15px;
+    height: 15px;
+  }
+  .parrafoFooter > p {
+    font-size: 10px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+@media (min-width: 471px) and (max-width: 768px) {
+  .logo {
+    width: 100px;
+    height: 40px;
+    margin-top: 10px;
+    margin-right: 5px;
+    margin: 10px 5px 0 0;
+  }
+  .navMenu > a{
+    margin: 0 5px 0 5px;
+    padding: 2px;
+  }
+  .tarjetaImg > .imagenTarjetaTama {
+    height: 173px;
+  }
+  .ultimaTarjeta {
+    margin-bottom: 50px;
+    padding: 20px 30px;
+  }
+  .tarjetaDescripcionPast {
+    margin: 5px;
+  }
+  .tarjetaDescripcionPast h3 {
+    font-size: 20px;
+  }
+  .tarjetaDescripcionPast p {
+    font-size: 15px;
+  }
+  .tarjetaPast img {
+    width: 235px;
+  }
+}
+@media (min-width: 769px) {
+  .tarjeta,
+  .tarjetaPast {
+    padding: 8px;
+  }
+  .tarjeta img {
+    height: 135px;
+  }
+}
