@@ -77,8 +77,14 @@ header {
   justify-content: space-evenly;
   margin-top: 30px;
 }
-.tarjeta,
-.tarjetaPast {
+.tarjeta {
+  background-color: white;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 15px;
+  max-width: 300px;
+}
+.tarjetaPast{
   background-color: white;
   margin-bottom: 20px;
   padding: 15px;
@@ -130,14 +136,18 @@ header {
 .tituloPast {
   margin-right: 20px;
 }
-.tarjetaBoton button {
+.tarjetaBoton a {
   border: none;
   border-radius: 3px;
   font-size: 15px;
   box-shadow: rgb(0 0 0 / 15%) -5px -4px 4px 0px;
+  text-decoration: none;
+  color: #160313;
+  background-color: #dddddd;
 }
-.tarjetaBoton button:hover {
-  background-color: #610528;
+.tarjetaBoton a:hover {
+  background-color: #67646f;
+  text-decoration: underline;
   color: white;
 }
 .contenedorPast {
@@ -177,7 +187,7 @@ footer {
   bottom: 0;
   color: white;
   height: 40px;
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
 }
 .contenedorFooter {
@@ -207,6 +217,9 @@ footer {
 }
 .parrafoFooter > p {
   margin: 0;
+}
+.butonMas{
+  background-color: #dddddd;
 }
 @media (max-width: 470px) {
   header {
@@ -338,10 +351,6 @@ footer {
   }
   .tarjetaImg > .imagenTarjetaTama {
     height: 173px;
-  }
-  .ultimaTarjeta {
-    margin-bottom: 50px;
-    padding: 20px 30px;
   }
   .tarjetaDescripcionPast {
     margin: 5px;

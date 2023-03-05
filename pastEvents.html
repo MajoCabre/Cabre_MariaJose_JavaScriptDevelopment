@@ -25,24 +25,71 @@
         <a href="./upcommingEvents.html">Upcoming Events</a>
         <a href="./pastEvents.html">Past Events</a>
         <a href="./contact.html">Contact</a>
-        <a href="./stats.html">Stats</a>     
+        <a href="./stats.html">Stats</a>
       </nav>
     </header>
 
-    <main class="contenedorPast">
+    <main>
+      <div class="nav">
+        <a href="./upcommingEvents.html"
+          ><img src="./assets/anterior.png" alt="anterior"></a>
+        <h1>Past Events</h1>
 
-      <div class="tarjetaPast">
-          <div class="tarjetaImg">
-            <img src="./assets/Music_Concert.jpg" alt="cinema">
-          </div>
-          <div class="tarjetaDescripcionPast">
-            <h3>Titulo</h3>
-            <p>Texto descriptivo</p>
-            <div class="tarjetaBoton botonPast">
-              <h4 class="tituloPast">Price $000</h4>
-              <button>Ver Mas</button>
-            </div>
+        <a href="./contact.html"
+          ><img src="./assets/siguiente.png" alt="siguiente"></a>
+      </div>
+
+      <div class="categorias">
+        <div>
+          <input
+            type="checkbox"
+            name="category"
+            id="category1"
+            class="buscarCategoria">
+          <label for="category1" class="buscarCategoria">Category</label>
+
+          <input
+            type="checkbox"
+            name="category"
+            id="category2"
+            class="buscarCategoria">
+          <label for="category2" class="buscarCategoria">Category</label>
+
+          <input
+            type="checkbox"
+            name="category"
+            id="category3"
+            class="buscarCategoria">
+          <label for="category3" class="buscarCategoria">Category</label>
+
+          <input
+            type="checkbox"
+            name="category"
+            id="category4"
+            class="buscarCategoria">
+          <label for="category4" class="buscarCategoria">Category</label>
+
+          <input
+            type="checkbox"
+            name="category"
+            id="category5"
+            class="buscarCategoria">
+          <label for="category5" class="buscarCategoria">Category</label>
         </div>
+
+        <div class="inputBusqueda">
+          <input
+            type="text"
+            name="busqueda"
+            id="busqueda"
+            class="buscarCategoria">
+          <button class="buscar">
+            <img class="botonBuscar" src="./assets/buscar.png" alt="buscar">
+          </button>
+        </div>
+      </div>
+
+      <div id="pastContenedor" class="contenedor">
       </div>
     </main>
 
@@ -53,17 +100,11 @@
         </a>
 
         <a class="botonFooter" href="./">
-          <img
-            id="facebook"
-            src="./assets/facebook-icon.png"
-            alt="facebook">
+          <img id="facebook" src="./assets/facebook-icon.png" alt="facebook">
         </a>
 
         <a class="botonFooter" href="./">
-          <img
-            id="whatsapp"
-            src="./assets/whatsapp.png"
-            alt="whatsapp">
+          <img id="whatsapp" src="./assets/whatsapp.png" alt="whatsapp">
         </a>
       </div>
 
@@ -82,5 +123,9 @@
       integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
       crossorigin="anonymous"
     ></script>
+
+    <script src="./js/data.js"></script>
+    <script src="./js/helper.js"></script>
+    <script src="./js/pastEvent.js"></script>
   </body>
 </html>
