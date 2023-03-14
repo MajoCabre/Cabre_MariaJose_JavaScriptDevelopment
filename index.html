@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous">
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css">
     <title>Home</title>
     <link
       rel="icon"
@@ -17,17 +18,41 @@
       href="./assets/Logo_Amazing_Events.png">
   </head>
   <body>
-    <header>
-      <img class="logo" src="./assets/Logo_Amazing_Events.png" alt="logo">
-
-      <nav class="navMenu">
-        <a href="./index.html">Home</a>
-        <a href="./upcommingEvents.html">Upcoming Events</a>
-        <a href="./pastEvents.html">Past Events</a>
-        <a href="./contact.html">Contact</a>
-        <a href="./stats.html">Stats</a>
-      </nav>
-    </header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <img class="logo" src="./assets/Logo_Amazing_Events.png" alt="logo">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./upcommingEvents.html">Upcoming Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pastEvents.html">Past Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./stats.html">Stats</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
     <main>
       <div class="nav">
@@ -40,8 +65,8 @@
       </div>
 
       <div class="categorias">
-        <div>
-          <input
+        <div id="categoryContenedor">
+          <!-- <input
             type="checkbox"
             name="category"
             id="category1"
@@ -74,23 +99,22 @@
             name="category"
             id="category5"
             class="buscarCategoria">
-          <label for="category5" class="buscarCategoria">Category</label>
+          <label for="category5" class="buscarCategoria">Category</label> -->
         </div>
 
         <div class="inputBusqueda">
           <input
             type="text"
             name="busqueda"
-            id="busqueda"
+            id="inputBusqueda"
             class="buscarCategoria">
-          <button class="buscar">
+          <button class="buscar" id="botonBusqueda">
             <img class="botonBuscar" src="./assets/buscar.png" alt="buscar">
           </button>
         </div>
       </div>
 
       <div id="contenedorTarjeta" class="contenedor">
-
     </main>
 
     <footer class="contenedorFooter">
@@ -114,15 +138,11 @@
     </footer>
 
     <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
-      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
-      crossorigin="anonymous"
-    ></script>
+
     <script src="./js/data.js"></script>
     <script src="./js/helper.js"></script>
     <script src="./js/index.js"></script>

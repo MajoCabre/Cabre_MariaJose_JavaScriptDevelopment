@@ -9,7 +9,7 @@ function crearTarjeta(evento) {
     tarjetaImg.setAttribute("class", "tarjetaImg");
     const imagen = document.createElement("img");
     imagen.setAttribute("alt", "img");
-    imagen.setAttribute("src", "assets/Cinema.jpg");
+    imagen.setAttribute("src", "image");
     // imagen.setAttribute("scr", evento.image);
     tarjetaImg.appendChild(imagen);
 
