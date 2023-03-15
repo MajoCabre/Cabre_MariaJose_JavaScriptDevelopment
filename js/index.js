@@ -75,9 +75,9 @@ document
             const category = label.textContent;
             if (category.length) {
                 const categoryToSearh = category.toLowerCase();
-    
+
                 const listadoFiltrado = data.events.filter((evento) => evento.category.toLowerCase().includes(categoryToSearh));
-    
+
                 removeAllChildNodes(contenedor);
                 showList(listadoFiltrado);
             } else {

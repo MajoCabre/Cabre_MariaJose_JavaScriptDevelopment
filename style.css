@@ -29,7 +29,13 @@ header {
   display: flex;
   align-items: center;
 }
-.navMenu > a{
+.navbar {
+  background-color: #160313 !important;
+}
+.nav-link {
+  color: white !important;
+}
+.navMenu > a {
   background-color: #160313;
   border: solid #18122b 1px;
   border-radius: 3px;
@@ -50,7 +56,7 @@ header {
   padding: 20px;
   display: flex;
   justify-content: space-between;
-} 
+}
 .categorias {
   color: white;
   display: flex;
@@ -87,7 +93,7 @@ header {
   padding: 15px;
   max-width: 300px;
 }
-.tarjetaPast{
+.tarjetaPast {
   background-color: white;
   margin-bottom: 20px;
   padding: 15px;
@@ -221,7 +227,7 @@ footer {
 .parrafoFooter > p {
   margin: 0;
 }
-.butonMas{
+.butonMas {
   background-color: #dddddd;
 }
 @media (max-width: 470px) {
@@ -251,7 +257,7 @@ footer {
   .navMenu a {
     width: 10px;
   }
-  .navMenu > a{
+  .navMenu > a {
     font-size: 7px;
     margin: 5px;
     padding: 0px;
@@ -348,7 +354,7 @@ footer {
     margin-right: 5px;
     margin: 10px 5px 0 0;
   }
-  .navMenu > a{
+  .navMenu > a {
     margin: 0 5px 0 5px;
     padding: 2px;
   }
