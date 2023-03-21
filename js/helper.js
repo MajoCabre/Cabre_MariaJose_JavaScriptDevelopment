@@ -9,8 +9,8 @@ function crearTarjeta(evento) {
     tarjetaImg.setAttribute("class", "tarjetaImg");
     const imagen = document.createElement("img");
     imagen.setAttribute("alt", "img");
-    imagen.setAttribute("src", "image");
-    // imagen.setAttribute("scr", evento.image);
+    // imagen.setAttribute("src", "image");
+    imagen.setAttribute("scr", evento.image);
     tarjetaImg.appendChild(imagen);
 
     //Esta es la descripción de la tarjeta
@@ -44,3 +44,31 @@ function crearTarjeta(evento) {
 
     return tarjeta;
 }
+
+// // function crearTarjeta(evento) {
+// //     if (evento.length == 0) {
+        
+// //         console.log("entre");
+// //         contenedor.innerHTML = "<p>No se encontran resultados<p/>"
+        
+// //         return
+// //     }
+// //     let ficha = ""
+// //     evento.forEach(event => {
+// //         ficha += `
+// //             <div class="tarjeta">
+// //                 <div class="tarjetaImg">
+// //                 <img src="${event.image}" class="card-img rounded-top " alt="${event.category}">
+// //                 <div class="tarjetaDescripcion">
+// //                     <h3>${event.name}</h3>
+// //                     <p>${event.description}</p>
+// //                     <h4>${event.price}</h4>
+// //                         <a class="buttonMas" href="information.html">
+// //                             Ver más
+// //                         </a>
+// //                 </div>
+// //                 </div>
+// //             </div>`
+// //     })
+// //     contenedor.innerHTML = ficha;
+// // }
