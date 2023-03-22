@@ -272,9 +272,10 @@ footer {
   }
   .categorias {
     margin: 15px 0px;
-    flex-wrap: wrap;
-    justify-content: center;
     width: 95%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
   .buscarCategoria {
     margin-right: 2px;

@@ -34,7 +34,7 @@ function crearTarjeta(evento) {
 
     const botonMas = document.createElement("a");
     botonMas.setAttribute("class", "buttonMas");
-    botonMas.setAttribute("href", "information.html");
+    botonMas.setAttribute("href", "details.html");
     botonMas.innerHTML = "Ver más";
     tarjetaBoton.appendChild(botonMas);
 
@@ -44,31 +44,3 @@ function crearTarjeta(evento) {
 
     return tarjeta;
 }
-
-// // function crearTarjeta(evento) {
-// //     if (evento.length == 0) {
-        
-// //         console.log("entre");
-// //         contenedor.innerHTML = "<p>No se encontran resultados<p/>"
-        
-// //         return
-// //     }
-// //     let ficha = ""
-// //     evento.forEach(event => {
-// //         ficha += `
-// //             <div class="tarjeta">
-// //                 <div class="tarjetaImg">
-// //                 <img src="${event.image}" class="card-img rounded-top " alt="${event.category}">
-// //                 <div class="tarjetaDescripcion">
-// //                     <h3>${event.name}</h3>
-// //                     <p>${event.description}</p>
-// //                     <h4>${event.price}</h4>
-// //                         <a class="buttonMas" href="information.html">
-// //                             Ver más
-// //                         </a>
-// //                 </div>
-// //                 </div>
-// //             </div>`
-// //     })
-// //     contenedor.innerHTML = ficha;
-// // }
