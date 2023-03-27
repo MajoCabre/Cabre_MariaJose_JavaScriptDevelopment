@@ -346,6 +346,9 @@ footer {
     display: flex;
     justify-content: flex-end;
   }
+  .contenedorImagen{
+    height: 200px;
+  }
 }
 @media (min-width: 471px) and (max-width: 768px) {
   .logo {
@@ -374,6 +377,9 @@ footer {
   .tarjetaPast img {
     width: 235px;
   }
+  .contenedorImagen{
+    height: 200px;
+  }
 }
 @media (min-width: 769px) {
   .tarjeta,
@@ -382,5 +388,8 @@ footer {
   }
   .tarjeta img {
     height: 135px;
+  }
+  .contenedorImagen{
+    height: 250px;
   }
 }

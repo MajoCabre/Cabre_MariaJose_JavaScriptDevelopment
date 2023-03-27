@@ -9,8 +9,7 @@ function crearTarjeta(evento) {
     tarjetaImg.setAttribute("class", "tarjetaImg");
     const imagen = document.createElement("img");
     imagen.setAttribute("alt", "img");
-    // imagen.setAttribute("src", "image");
-    imagen.setAttribute("scr", evento.image);
+    imagen.setAttribute("src", evento.image);
     tarjetaImg.appendChild(imagen);
 
     //Esta es la descripción de la tarjeta
@@ -29,12 +28,12 @@ function crearTarjeta(evento) {
     const tarjetaBoton = document.createElement("div");
     tarjetaBoton.setAttribute("class", "tarjetaBoton");
     const precio = document.createElement("h4")
-    precio.innerHTML = evento.price;
+    precio.innerHTML = `${evento.price}$`;
     tarjetaBoton.appendChild(precio)
 
     const botonMas = document.createElement("a");
     botonMas.setAttribute("class", "buttonMas");
-    botonMas.setAttribute("href", "details.html");
+    botonMas.setAttribute("href", `details.html?id=${evento._id}`);
     botonMas.innerHTML = "Ver más";
     tarjetaBoton.appendChild(botonMas);
 

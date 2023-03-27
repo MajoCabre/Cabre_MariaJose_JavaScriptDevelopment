@@ -109,8 +109,7 @@ let datos =
 
                     const label = document.createElement("label");
                     label.setAttribute("for", "checkbox");
-                    input.setAttribute("class", `category${i}`);
-                    input.setAttribute("class", "buscarCategoria");
+                    label.setAttribute("class", `category${i}`);
 
                     label.innerText = categories[i];
 
@@ -147,6 +146,8 @@ let datos =
 
             botonBusqueda
                 .addEventListener('click', () => {
+                    console.log('CLICK 1 queremos input');
+
                     const inputBusqueda = document.getElementById('inputBusqueda');
                     const textoBusqueda = inputBusqueda.value;
                     if (textoBusqueda.length) {
@@ -160,26 +161,41 @@ let datos =
                         removeAllChildNodes(contenedor);
                         showList(respuesta.events);
                     }
-                })
+                });
 
-            document
+            const categoryContenedor = document.getElementById('categoryContenedor');
+
+            categoryContenedor
                 .addEventListener('click', (event) => {
-                    const hasClass = event.target.classList.contains('buscarCategoria');
-                    if (hasClass) {
-                        const label = document.querySelector("label", event.target.id);
-                        const category = label.textContent;
-                        if (category.length) {
-                            const categoryToSearh = category.toLowerCase();
+                    console.log('CLICK 2 queremos checkbox');
+                    if (event.target.checked) {
+                        const hasClass = event.target.classList.contains('buscarCategoria');
+                        if (hasClass) {
+                            console.log('id', event.target.id)
 
-                            const listadoFiltrado = respuesta.events.filter((evento) => evento.category.toLowerCase().includes(categoryToSearh));
+                            const label = document.getElementsByClassName(event.target.id)[0];
+                            console.log('label', label)
 
-                            removeAllChildNodes(contenedor);
-                            showList(listadoFiltrado);
-                        } else {
-                            removeAllChildNodes(contenedor);
-                            showList(respuesta.events);
+                            const category = label.textContent;
+                            console.log('category', category)
+
+                            if (category.length) {
+                                const categoryToSearh = category.toLowerCase();
+                                console.log('categoryToSearh', categoryToSearh)
+
+                                const listadoFiltrado = respuesta.events.filter((evento) => evento.category.toLowerCase().includes(categoryToSearh));
+
+                                removeAllChildNodes(contenedor);
+                                showList(listadoFiltrado);
+                            } else {
+                                removeAllChildNodes(contenedor);
+                                showList(respuesta.events);
+                            }
                         }
+                    } else {
+                        removeAllChildNodes(contenedor);
+                        showList(respuesta.events);
                     }
-                })
+                });
         })
         .catch((error) => console.log(error));

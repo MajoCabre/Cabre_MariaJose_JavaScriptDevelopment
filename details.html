@@ -24,7 +24,7 @@
       <div class="container-fluid">
         <img class="logo" src="./assets/Logo_Amazing_Events.png" alt="logo" />
         <button
-          class="navbar-toggler "
+          class="navbar-toggler bg-light"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarTogglerDemo02"
@@ -61,16 +61,14 @@
     </nav>
 
     <main class="contenedorPast">
-      <div class="tarjetaPast">
+      <div class="tarjeta">
         <div class="tarjetaImg">
-          <img src="./assets/Music_Concert.jpg" alt="cinema" />
+          <img id="image" src="./assets/Music_Concert.jpg" alt="cinema" />
         </div>
-        <div class="tarjetaDescripcionPast">
-          <h3>Titulo</h3>
-          <p>Texto descriptivo</p>
+          <h3 class="tarjetaDescripcion" id="titulo"></h3>
+          <p class="tarjetaDescripcion" id="texto_descriptivo">Texto descriptivo</p>
           <div class="tarjetaBoton botonPast">
-            <h4 class="tituloPast">Price $000</h4>
-          </div>
+            <h4 class="tituloPast" id="price">Price $000</h4>
         </div>
       </div>
     </main>
@@ -105,5 +103,6 @@
       integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/details.js"></script>
   </body>
 </html>
