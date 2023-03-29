@@ -20,7 +20,6 @@ let datos =
             // console.log(respuesta);
 
             const dateReference = data.currentDate;
-
             const contenedor = document.getElementById("contenedorTarjeta");
             const categorieContenedor = document.getElementById('categoryContenedor');
             const categories = respuesta.events.map((evento) => evento.category);

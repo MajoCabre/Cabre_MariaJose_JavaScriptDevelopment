@@ -1,6 +1,6 @@
 // const dateReference = data.currentDate;
-// const pastContenedor = document.getElementById("pastContenedor");
-// const categorieContenedor = document.getElementById('categorias');
+// const contenedor = document.getElementById("pastContenedor");
+// const categorieContenedor = document.getElementById('categoryContenedor');
 
 // const categories = data.events.map((evento) => evento.category);
 
@@ -36,7 +36,7 @@
 //         if (new Date(dateEvents) < new Date(dateReference)) {
 
 //             let pastTarjeta = crearTarjeta(eventPast);
-//             pastContenedor.appendChild(pastTarjeta);
+//             contenedor.appendChild(pastTarjeta);
 //         }
 //     }
 
@@ -103,11 +103,12 @@ let datos =
 
             console.log(respuesta);
 
-            const dateReference = respuesta.currentDate;
-            const pastContenedor = document.getElementById("pastContenedor");
-            const categorieContenedor = document.getElementById('categorias');
+            const dateReference = data.currentDate;
+            const contenedor = document.getElementById("pastContenedor");
+            const categorieContenedor = document.getElementById('categoryContenedor');
 
             const categories = data.events.map((evento) => evento.category);
+
 
             function showCategories(categories) {
                 for (let i = 0; i < categories.length; i++) {
@@ -139,7 +140,7 @@ let datos =
                     if (new Date(dateEvents) < new Date(dateReference)) {
 
                         let pastTarjeta = crearTarjeta(eventPast);
-                        pastContenedor.appendChild(pastTarjeta);
+                        contenedor.appendChild(pastTarjeta);
                     }
                 }
 
