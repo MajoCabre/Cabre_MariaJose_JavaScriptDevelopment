@@ -98,7 +98,7 @@ let datos =
     fetch("https://mindhub-xj03.onrender.com/api/amazing")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => {
-            const dateReference = data.currentDate;
+            const dateReference = respuesta.currentDate;
             const contenedor = document.getElementById("contenedorTarjeta");
             const pastCategoryContenedor = document.getElementById('pastCategoryContenedor');
             const pastEvents = respuesta.events.filter((evento) => new Date(evento.date) < new Date(dateReference));
