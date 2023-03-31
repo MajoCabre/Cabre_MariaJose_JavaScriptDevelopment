@@ -1,6 +1,6 @@
 // const dateReference = data.currentDate;
 // const contenedor = document.getElementById("pastContenedor");
-// const categorieContenedor = document.getElementById('categoryContenedor');
+// const categorieContenedor = document.getElementById('pastCategoryContenedor');
 
 // const categories = data.events.map((evento) => evento.category);
 
@@ -94,21 +94,17 @@
 //         }
 //     })
 
-
-
 let datos =
     fetch("https://mindhub-xj03.onrender.com/api/amazing")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => {
-
-            console.log(respuesta);
-
             const dateReference = data.currentDate;
-            const contenedor = document.getElementById("pastContenedor");
-            const categorieContenedor = document.getElementById('categoryContenedor');
+            const contenedor = document.getElementById("contenedorTarjeta");
+            const pastCategoryContenedor = document.getElementById('pastCategoryContenedor');
+            const pastEvents = respuesta.events.filter((evento) => new Date(evento.date) < new Date(dateReference));
 
-            const categories = data.events.map((evento) => evento.category);
-
+            const categories = pastEvents.map((evento) => evento.category);
+            let categorieSelecteds = [];
 
             function showCategories(categories) {
                 for (let i = 0; i < categories.length; i++) {
@@ -125,25 +121,19 @@ let datos =
 
                     label.innerText = categories[i];
 
-                    categorieContenedor.appendChild(input);
-                    categorieContenedor.appendChild(label);
+                    pastCategoryContenedor.appendChild(input);
+                    pastCategoryContenedor.appendChild(label);
                 }
             }
 
             function showList(listado) {
-
                 for (let i = 0; i < listado.length; i++) {
 
-                    let eventPast = respuesta.events[i];
-                    let dateEvents = eventPast.date;
+                    let eventComming = listado[i];
 
-                    if (new Date(dateEvents) < new Date(dateReference)) {
-
-                        let pastTarjeta = crearTarjeta(eventPast);
-                        contenedor.appendChild(pastTarjeta);
-                    }
+                    let commingTarjeta = crearTarjeta(eventComming);
+                    contenedor.appendChild(commingTarjeta);
                 }
-
             }
 
             function removeAllChildNodes(parent) {
@@ -157,61 +147,64 @@ let datos =
             });
 
             showCategories(categoriesNoDuplicados);
-            showList(respuesta.events);
+            showList(pastEvents);
 
             const botonBusqueda = document.getElementById('botonBusqueda');
 
             botonBusqueda
                 .addEventListener('click', () => {
-                    console.log('CLICK 1 queremos input');
 
                     const inputBusqueda = document.getElementById('inputBusqueda');
                     const textoBusqueda = inputBusqueda.value;
                     if (textoBusqueda.length) {
                         const busqueda = textoBusqueda.toLowerCase();
 
-                        const listadoFiltrado = respuesta.events.filter((evento) => evento.name.toLowerCase().includes(busqueda));
+                        const listadoFiltrado = pastEvents.filter((evento) => evento.name.toLowerCase().includes(busqueda));
 
                         removeAllChildNodes(contenedor);
                         showList(listadoFiltrado);
                     } else {
                         removeAllChildNodes(contenedor);
-                        showList(respuesta.events);
+                        showList(pastEvents);
                     }
                 });
 
-            const categoryContenedor = document.getElementById('categoryContenedor');
 
-            categoryContenedor
+            pastCategoryContenedor
                 .addEventListener('click', (event) => {
-                    console.log('CLICK 2 queremos checkbox');
+                    const label = document.getElementsByClassName(event.target.id)[0];
+                    const category = label.textContent;
+                    const categoryToSearh = category.toLowerCase();
+
                     if (event.target.checked) {
                         const hasClass = event.target.classList.contains('buscarCategoria');
                         if (hasClass) {
-                            console.log('id', event.target.id)
-
-                            const label = document.getElementsByClassName(event.target.id)[0];
-                            console.log('label', label)
-
-                            const category = label.textContent;
-                            console.log('category', category)
-
                             if (category.length) {
-                                const categoryToSearh = category.toLowerCase();
-                                console.log('categoryToSearh', categoryToSearh)
+                                categorieSelecteds.push(categoryToSearh);
 
-                                const listadoFiltrado = respuesta.events.filter((evento) => evento.category.toLowerCase().includes(categoryToSearh));
+                                const listadoFiltrado = pastEvents.filter((evento) => categorieSelecteds.includes(evento.category.toLowerCase()));
 
                                 removeAllChildNodes(contenedor);
                                 showList(listadoFiltrado);
                             } else {
                                 removeAllChildNodes(contenedor);
-                                showList(respuesta.events);
+                                showList(pastEvents);
                             }
                         }
                     } else {
+                        let listado = pastEvents;
+                        const hasCategory = categorieSelecteds.find((category) => category === categoryToSearh)
+
+                        if (hasCategory) {
+                            categorieSelecteds = categorieSelecteds.filter((category) => category !== categoryToSearh);
+                        }
+
+                        if (categorieSelecteds.length > 0) {
+                            listado = pastEvents.filter((evento) => categorieSelecteds.includes(evento.category.toLowerCase()));
+                        }
+
                         removeAllChildNodes(contenedor);
-                        showList(respuesta.events);
+                        showList(listado);
                     }
                 });
         })

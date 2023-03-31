@@ -1,5 +1,5 @@
 // const contenedor = document.getElementById("contenedorTarjeta");
-// const categorieContenedor = document.getElementById('categoryContenedor');
+// const categoryContenedor = document.getElementById('categoryContenedor');
 // const categories = data.events.map((evento) => evento.category);
 
 
@@ -19,8 +19,8 @@
 
 //         label.innerText = categories[i];
 
-//         categorieContenedor.appendChild(input);
-//         categorieContenedor.appendChild(label);
+//         categoryContenedor.appendChild(input);
+//         categoryContenedor.appendChild(label);
 //     }
 // }
 
@@ -91,12 +91,13 @@ let datos =
     fetch("https://mindhub-xj03.onrender.com/api/amazing")
         .then((respuesta) => respuesta.json())
         .then((respuesta) => {
-            console.log(respuesta);
 
             const contenedor = document.getElementById("contenedorTarjeta");
-            const categorieContenedor = document.getElementById('categoryContenedor');
-            const categories = respuesta.events.map((evento) => evento.category);
-
+            const categoryContenedor = document.getElementById('categoryContenedor');
+            const botonBusqueda = document.getElementById('botonBusqueda');
+            const allEvents = respuesta.events;
+            const categories = allEvents.map((evento) => evento.category);
+            let categorieSelecteds = [];
 
             function showCategories(categories) {
                 for (let i = 0; i < categories.length; i++) {
@@ -113,8 +114,8 @@ let datos =
 
                     label.innerText = categories[i];
 
-                    categorieContenedor.appendChild(input);
-                    categorieContenedor.appendChild(label);
+                    categoryContenedor.appendChild(input);
+                    categoryContenedor.appendChild(label);
                 }
             }
 
@@ -140,61 +141,62 @@ let datos =
             });
 
             showCategories(categoriesNoDuplicados);
-            showList(respuesta.events);
+            showList(allEvents);
 
-            const botonBusqueda = document.getElementById('botonBusqueda');
 
             botonBusqueda
                 .addEventListener('click', () => {
-                    console.log('CLICK 1 queremos input');
-
                     const inputBusqueda = document.getElementById('inputBusqueda');
                     const textoBusqueda = inputBusqueda.value;
                     if (textoBusqueda.length) {
                         const busqueda = textoBusqueda.toLowerCase();
 
-                        const listadoFiltrado = respuesta.events.filter((evento) => evento.name.toLowerCase().includes(busqueda));
+                        const listadoFiltrado = allEvents.filter((evento) => evento.name.toLowerCase().includes(busqueda));
 
                         removeAllChildNodes(contenedor);
                         showList(listadoFiltrado);
                     } else {
                         removeAllChildNodes(contenedor);
-                        showList(respuesta.events);
+                        showList(allEvents);
                     }
                 });
 
-            const categoryContenedor = document.getElementById('categoryContenedor');
 
             categoryContenedor
                 .addEventListener('click', (event) => {
-                    console.log('CLICK 2 queremos checkbox');
+                    const label = document.getElementsByClassName(event.target.id)[0];
+                    const category = label.textContent;
+                    const categoryToSearh = category.toLowerCase();
+
                     if (event.target.checked) {
                         const hasClass = event.target.classList.contains('buscarCategoria');
                         if (hasClass) {
-                            console.log('id', event.target.id)
-
-                            const label = document.getElementsByClassName(event.target.id)[0];
-                            console.log('label', label)
-
-                            const category = label.textContent;
-                            console.log('category', category)
-
                             if (category.length) {
-                                const categoryToSearh = category.toLowerCase();
-                                console.log('categoryToSearh', categoryToSearh)
+                                categorieSelecteds.push(categoryToSearh);
 
-                                const listadoFiltrado = respuesta.events.filter((evento) => evento.category.toLowerCase().includes(categoryToSearh));
+                                const listadoFiltrado = allEvents.filter((evento) => categorieSelecteds.includes(evento.category.toLowerCase()));
 
                                 removeAllChildNodes(contenedor);
                                 showList(listadoFiltrado);
                             } else {
                                 removeAllChildNodes(contenedor);
-                                showList(respuesta.events);
+                                showList(allEvents);
                             }
                         }
                     } else {
+                        let listado = allEvents;
+                        const hasCategory = categorieSelecteds.find((category) => category === categoryToSearh)
+
+                        if (hasCategory) {
+                            categorieSelecteds = categorieSelecteds.filter((category) => category !== categoryToSearh);
+                        }
+
+                        if (categorieSelecteds.length > 0) {
+                            listado = allEvents.filter((evento) => categorieSelecteds.includes(evento.category.toLowerCase()));
+                        }
+
                         removeAllChildNodes(contenedor);
-                        showList(respuesta.events);
+                        showList(listado);
                     }
                 });
         })
